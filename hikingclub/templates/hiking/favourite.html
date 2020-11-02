@@ -1,0 +1,34 @@
+{% extends "hiking/layout.html" %}
+{% load static %}
+{% block body %}
+{% if favourite %}
+        <div class="row mx-auto">
+        {% for hiking in favourite %}
+        <div class="card mx-auto cardStyle">
+            {% if hiking.image_url %}
+              <img class="card-img-top imgStyle" src="{{ hiking.image_url }}" alt="Image">
+            {% else %}
+              <img class="card-img-top imgStyle" src="{% static 'nophoto.png' %}" alt="nophoto">
+            {% endif %}
+            <div class="card-body">
+            <h5 class="card-title">{{hiking.title}}</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-transparent">{{hiking.short_description}}</li>
+                <li class="list-group-item bg-transparent"><b> LOCATION: </b>{{hiking.location}}</li>
+                <li class="list-group-item bg-transparent"><b>LEVEL: </b>{{hiking.level}}</li>
+            </ul>
+            <form method="GET" action="{% url 'singlehike' hiking.id %}">
+            <input class="btn boton" type="submit" value="See more">
+            </form>
+            </div>
+          </div>
+        {% endfor %}
+        </div>  
+{% else %}
+<h2>Your favourite list is empty, go to <a class="navItem" href="{% url 'index' %}">Home </a> and check the available hikings </h2> 
+{% endif %}
+
+
+
+
+{% endblock %}

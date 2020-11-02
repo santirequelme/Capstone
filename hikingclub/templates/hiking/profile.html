@@ -1,0 +1,16 @@
+{% extends "hiking/layout.html" %}
+{% load static %}
+{% block body %}
+{% if user.is_authenticated %}
+<h2 class="secondText">YOUR BOOKINGS </h2>
+<div class="row justify-content-center"> 
+    <div class="col-md-11 ml-3 mt-2"> 
+        <div id="list-view">
+         </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+{% block script %}
+    <script src="{% static 'hiking/rendbookings.js' %}"></script>
+{% endblock %}
