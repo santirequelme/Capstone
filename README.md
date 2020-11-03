@@ -17,9 +17,6 @@ The web application is fully mobile-responsive, highlights and challenging for m
     ````
     python -m pip install Django
     ````
-    ````
-    pip3 install markdown2
-    ````
 * In the root folder, execute 
     ````
     python manage.py runserver"
